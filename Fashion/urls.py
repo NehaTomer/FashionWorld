@@ -29,7 +29,7 @@ urlpatterns = [
     path('remove-from-wishlist/<int:num>/',views.removewishlistpage),
     path('place-order/',views.placeorder),
     path('paymentSuccess/<str:rppid>/<str:rpoid>/<str:rpsid>/<int:checkid/',views.paymentSuccesspage),
-    path('re-payment/<str:checkid>/',views.payAgainpage),
+    path('re-payment/<int:checkid>/',views.payAgainpage),
     path('confirmation/',views.confirmationpage),
     path('cart/',views.cartpage),
     path('checkout/', views.checkoutpage),
