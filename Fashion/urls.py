@@ -28,7 +28,7 @@ urlpatterns = [
     path('addtowishlist/<int:num>/',views.wishlistpage),
     path('remove-from-wishlist/<int:num>/',views.removewishlistpage),
     path('place-order/',views.placeorder),
-    path('paymentSuccess/<str:rppid>/<str:rpoid>/<str:rpsid>/',views.paymentSuccesspage),
+    path('paymentSuccess/<str:rppid>/<str:rpoid>/<str:rpsid>/<int:checkid/',views.paymentSuccesspage),
     path('re-payment/<str:checkid>/',views.payAgainpage),
     path('confirmation/',views.confirmationpage),
     path('cart/',views.cartpage),
