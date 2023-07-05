@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+    <title>Fashion-world|Update-Profile  </title>
+    {% endblock %}
+    {% block body %}
+    <div class=" form container fluid w-100">
+        <div class=" login w-75 m-auto" >
+            <h5 class="text-center  p-2"><span class="text-success">Update Your Profile</h5>
+             {% for m in messages %}
+             <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+             {% endfor %}
+                <form action="/update-profile/" method="post" class="form" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class=" sign col-md-6">
+                        <label>Name</label><span class="material-symbols-outlined">
+                            person
+                            </span>
+                        <input type="text" name="name" placeholder=" Full Name" class="form-control" value="{{data.name}}">
+                    </div>
+                    <div class=" sign col-md-6">
+                        <label>pic</label><span class="material-symbols-outlined">
+                           image
+                            </span>
+                        <input type="file" name="pic"  class="form-control">
+                    </div>
+                    
+                </div>
+                <div class="row mb-3">
+                    <div class=" sign col-md-6">
+                        <label>Email</label><span class="material-symbols-outlined">
+                            email
+                            </span>
+                        <input type="email" name="email" placeholder="email" class="form-control" value="{{data.email}}">
+                    </div>
+                    
+                    <div class=" sign col-md-6">
+                        <label>Phone</label><span class="material-symbols-outlined">
+                            phone
+                            </span>
+                        <input type="text"  name="phone"placeholder="Phone no" class="form-control" value="{{data.phone}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="sign col-md-6">
+                        <label>Address Line 1</label><span class="material-symbols-outlined">
+                            house
+                            </span>
+                        <input type="text"  name="addressline1" placeholder="address line 1" class="form-control" value="{{data.addressline1}}">
+                    </div>
+                    <div class="sign col-md-6">
+                        <label>Address Line 2</label><span class="material-symbols-outlined">
+                            house
+                            </span>
+                        <input type="text"  name="addressline2" placeholder="address line 2" class="form-control" value="{{data.addressline2}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="sign col-md-6">
+                        <label>Address Line 3</label><span class="material-symbols-outlined">
+                            house
+                            </span>
+                        <input type="text"  name="addressline3" placeholder="address line 3" class="form-control" value="{{data.addressline3}}">
+                    </div>
+                    <div class="sign col-md-6">
+                        <label>Pin Code</label><span class="material-symbols-outlined">
+                            home_pin
+                            </span>
+                        <input type="text"  name="pin" placeholder="pin code" class="form-control" value="{{data.pic}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="sign col-md-6">
+                        <label>City</label><span class="material-symbols-outlined">
+                           location_city
+                            </span>
+                        <input type="text"  name="city" placeholder="city" class="form-control" value="{{data.city}}">
+                    </div>
+                    <div class="sign col-md-6">
+                        <label>State</label>
+                        <input type="text"  name="state" placeholder="state" class="form-control" value="{{data.state}}">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="click">Submit</button>
+                </div>
+             </form>
+        </div>
+    </div>
+    {% endblock %}
