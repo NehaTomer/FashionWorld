@@ -426,9 +426,9 @@ def paymentSuccesspage(request,rppid,rpoid,rpsid,checkid):
             check=check[0]
         else:
             check = Checkout.objects.get(id=checkid)
-        check.rppid=rppid
-        check.paymentStatus=2
-        check.save()
+            check.rppid=rppid
+            check.paymentStatus=2
+            check.save()
 
         subject = 'Order has been placed : Team FahionWorld'
         message = f"""Hi {buyer.name}, Your order  has been placed with order id {rppid}
