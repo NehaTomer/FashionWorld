@@ -417,7 +417,7 @@ def placeorder(request):
     else:   
         return HttpResponseRedirect("/checkout/")
      
-@login_required(login_url="/loginpage/")    
+@login_required(login_url="/login/")    
 def paymentSuccesspage(request,rppid,rpoid,rpsid,checkid):
         buyer = Buyers.objects.get(username = request.user)
         if(checkid==9999999999):
@@ -441,7 +441,7 @@ def paymentSuccesspage(request,rppid,rpoid,rpsid,checkid):
  
 
 
-@login_required(login_url="/loginpage/")    
+@login_required(login_url="/login/")    
 def payAgainpage(request,checkid):
     try:
        buyer = Buyers.objects.get(username = request.user)
