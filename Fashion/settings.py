@@ -133,7 +133,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "nehatomar6112@gmail.com"  #sender"s email
 EMAIL_HOST_PASSWORD = "upjrpfxgfrpubabj" #password associated with above email-id
 
-# STATIC_ROOT = "/home/SanjayDjango/shopkaro/static/"
+STATIC_ROOT = "/home/nehatomer/Fashion/static/"
 
 RAZORPAY_API_KEY=  "rzp_test_kGGsEkkHFAwaXx"
 RAZORPAY_API_SECRET_KEY = "sgrDIYBGcUHRfkPDPEV5rM88"
