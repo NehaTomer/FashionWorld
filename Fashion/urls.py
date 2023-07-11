@@ -14,6 +14,7 @@ urlpatterns = [
     path('product/<str:mc>/<str:sc>/<str:br>/',views.productpage),
     path('filter/<str:mc>/<str:sc>/<str:br>/<str:filter>/',views.filterpage),
     path('price-filter/<str:mc>/<str:sc>/<str:br>/',views.PriceFilterPage),
+    path('color-filter/<str:mc>/<str:sc>/<str:br>/',views.colorfilterpage),
     path('search/',views.searchpage),
     path('testimonial/',views.testimonialpage),
     path('product_detail/<int:num>/',views.productdetailpage),

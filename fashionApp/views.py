@@ -162,6 +162,46 @@ def PriceFilterPage(request,mc,sc,br):
     brands=Brand.objects.all()
     return render(request,"product.html",{'data':data,'product':product,'maincategories':maincategories,'subcategories':subcategories,'brands':brands,'mc':mc,'sc':sc,'br':br,'filter':filter})
 
+def colorfilterpage(request,mc,sc,br):
+    option = request.POST.get("color")
+    if(option=="1"):
+        clr = "null"
+    elif(option=="2"):
+        clr = "Black" 
+    elif(option=="3"):
+        clr = "White"
+    elif(option=="4"):
+        clr = "Red"  
+    elif(option=="5"):
+         clr = "Blue"
+    elif(option=="6"):
+         clr = "Green"
+    elif(option=="7"):
+         clr = "Yellow"    
+   
+    if (mc=="All") and (sc=="All") and (br=="All"):
+        data = Product.objects.filter(color=clr).order_by("final_price") 
+    elif (mc!="All") and (sc=="All") and (br=="All"):
+        data = Product.objects.filter(maincategory=Maincategory.objects.get(name=mc),color=clr,).order_by("final_price")
+    elif (mc=="All") and (sc!="All") and (br=="All"): 
+        data = Product.objects.filter(subcategory=Subcategory.objects.get(name=sc),color=clr).order_by("final_price")
+    elif (mc=="All") and (sc=="All") and (br!="All"):
+        data = Product.objects.filter(brands=Brand.objects.get(name=br),color=clr).order_by("final_price")
+    elif (mc!="All") and (sc!="All") and (br=="All"):
+        data = Product.objects.filter(maincategory=Maincategory.objects.get(name=mc),subcategory=Subcategory.objects.get(name=sc),color=clr).order_by("final_price")
+    elif (mc!="All") and (sc=="All") and (br!="All"): 
+        data = Product.objects.filter(maincategory=Maincategory.objects.get(name=mc),brands=Brand.objects.get(name=br),color=clr).order_by("final_price")   
+    elif (mc=="All") and (sc!="All") and (br!="All"):
+        data = Product.objects.filter(subcategory=Subcategory.objects.get(name=sc),brands=Brand.objects.get(name=br),color=clr).order_by("final_price")
+    else:    
+        data = Product.objects.filter(maincategory=Maincategory.objects.get(name=mc),subcategory=Subcategory.objects.get(name=sc),brands=Brand.objects.get(name=br),color=clr).order_by("final_price")
+    product = Product.objects.all().order_by("id")[:75:15]
+    maincategory = Maincategory.objects.all()
+    subcategory = Subcategory.objects.all()
+    brands = Brand.objects.all()
+    return render(request,"product.html",{"data":data,"product":product,"maincategory":maincategory,"subcategory":subcategory,"brands":brands,"mc":mc,"sc":sc,"br":br})
+
+
 
 def searchpage(request):
     if(request.method=="POST"):
